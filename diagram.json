@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "FIAP - Global Solution 2026",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-v1",
+      "id": "esp",
+      "top": 100,
+      "left": 200,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 30,
+      "left": 30,
+      "attrs": { "label": "PRESSAO" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 30,
+      "left": 380,
+      "attrs": { "label": "RADIACAO" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 300,
+      "left": 80,
+      "attrs": { "color": "red", "label": "CRITICO" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 340,
+      "left": 80,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["pot1:SIG", "esp:34", "green", []],
+    ["pot1:VCC", "esp:3V3", "red", []],
+    ["pot1:GND", "esp:GND.1", "black", []],
+    ["ldr1:AO",  "esp:35", "orange", []],
+    ["ldr1:VCC", "esp:3V3", "red", []],
+    ["ldr1:GND", "esp:GND.2", "black", []],
+    ["esp:2",    "led1:A", "yellow", []],
+    ["led1:K",   "r1:1", "yellow", []],
+    ["r1:2",     "esp:GND.3", "black", []]
+  ],
+  "dependencies": {}
+}
