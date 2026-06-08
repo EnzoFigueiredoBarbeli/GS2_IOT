@@ -1,54 +1,92 @@
 {
   "version": 1,
-  "author": "FIAP - Global Solution 2026",
+  "author": "FIAP GS 2026",
   "editor": "wokwi",
   "parts": [
     {
       "type": "board-esp32-devkit-v1",
       "id": "esp",
-      "top": 100,
-      "left": 200,
+      "top": 150,
+      "left": 240,
       "attrs": {}
     },
     {
       "type": "wokwi-potentiometer",
       "id": "pot1",
-      "top": 30,
-      "left": 30,
+      "top": 40,
+      "left": 40,
       "attrs": { "label": "PRESSAO" }
     },
     {
       "type": "wokwi-photoresistor-sensor",
       "id": "ldr1",
-      "top": 30,
-      "left": 380,
+      "top": 40,
+      "left": 460,
       "attrs": { "label": "RADIACAO" }
     },
     {
       "type": "wokwi-led",
-      "id": "led1",
-      "top": 300,
-      "left": 80,
+      "id": "ledG",
+      "top": 400,
+      "left": 40,
+      "attrs": { "color": "green", "label": "SEGURO" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledY",
+      "top": 400,
+      "left": 120,
+      "attrs": { "color": "yellow", "label": "ALERTA" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledR",
+      "top": 400,
+      "left": 200,
       "attrs": { "color": "red", "label": "CRITICO" }
     },
     {
       "type": "wokwi-resistor",
-      "id": "r1",
-      "top": 340,
-      "left": 80,
+      "id": "rG",
+      "top": 450,
+      "left": 40,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rY",
+      "top": 450,
+      "left": 120,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rR",
+      "top": 450,
+      "left": 200,
       "attrs": { "value": "220" }
     }
   ],
   "connections": [
-    ["pot1:SIG", "esp:34", "green", []],
-    ["pot1:VCC", "esp:3V3", "red", []],
-    ["pot1:GND", "esp:GND.1", "black", []],
+    ["pot1:SIG", "esp:34", "green",  []],
+    ["pot1:VCC", "esp:3V3","red",    []],
+    ["pot1:GND", "esp:GND.1","black",[]],
+
     ["ldr1:AO",  "esp:35", "orange", []],
-    ["ldr1:VCC", "esp:3V3", "red", []],
-    ["ldr1:GND", "esp:GND.2", "black", []],
-    ["esp:2",    "led1:A", "yellow", []],
-    ["led1:K",   "r1:1", "yellow", []],
-    ["r1:2",     "esp:GND.3", "black", []]
+    ["ldr1:VCC", "esp:3V3","red",    []],
+    ["ldr1:GND", "esp:GND.2","black",[]],
+
+    ["esp:25", "ledG:A", "green",  []],
+    ["ledG:K", "rG:1",   "green",  []],
+    ["rG:2",   "esp:GND.3","black",[]],
+
+    ["esp:26", "ledY:A", "yellow", []],
+    ["ledY:K", "rY:1",   "yellow", []],
+    ["rY:2",   "esp:GND.4","black",[]],
+
+    ["esp:27", "ledR:A", "red",    []],
+    ["ledR:K", "rR:1",   "red",    []],
+    ["rR:2",   "esp:GND.5","black",[]]
   ],
   "dependencies": {}
 }
