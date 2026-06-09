@@ -62,7 +62,7 @@ Felipe Santana RM554259
 
 ## Vídeo Demonstrativo
 
-[▶ Assistir no YouTube / Drive](#) ← *substituir pelo link real*
+https://youtu.be/wAhX26mKGek
 
 ---
 
